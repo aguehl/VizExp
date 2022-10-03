@@ -33,7 +33,7 @@ dfDom, dfInter, dfTrans =LoadParam()
 # PROV TPRS', 'MD(QT)', 'PAYSEXP', 'DEPTEXP', 'PAYSDEST', 'DEPTDEST', 'NBETIQ', 'NBPALEURDECL', 'POIDSDECLARE', 'NBKM', 
 # 'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
 # 'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE
-ListCol=['','NBKM','POIDSDECLARE', 'METREPLACHERDECL', 'METREPLANCHERCORR', 'PRIXKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' , 'FTL', 'DISTANCE','TransTYpe']
+ListCol=['','NBKM','POIDSDECLARE', 'METREPLACHERDECL', 'METREPLANCHERCORR', 'PRIXKKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
 
 dfDict={'Domestic':dfDom,"Inter" :dfInter,'TransInter' :dfTrans }
 Type=['Domestic', 'Inter', 'TransInter']
@@ -53,13 +53,17 @@ with col22:
     Dist=st.selectbox('Distance', Distances, index=i-1)
     
     if Selected!='':
-        Selmin=int(df[Selected].min())
+        if Selected in ['NBKM','POIDSDECLARE']:
+            Selmin=int(df[Selected].min())
+            Selmax=int(df[Selected].max())
+        else:
+            Selmin=float(df[Selected].min())
+            Selmax=float(df[Selected].max())
         st.write(Selmin)
-        Selmax=int(df[Selected].max())
         st.write(Selmax)
         Limmax=0
         Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
-        Limmax=st.slider('max', min_value=Selmin, max_value=Selmax)
+        Limmax=st.slider('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)
 
 with col23:
     ftl=st.checkbox('FTL', value=True)
