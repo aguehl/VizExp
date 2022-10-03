@@ -33,7 +33,7 @@ dfDom, dfInter, dfTrans =LoadParam()
 # PROV TPRS', 'MD(QT)', 'PAYSEXP', 'DEPTEXP', 'PAYSDEST', 'DEPTDEST', 'NBETIQ', 'NBPALEURDECL', 'POIDSDECLARE', 'NBKM', 
 # 'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
 # 'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL'
-ListCol=['','NBKM','POIDSDECLARE', 'METREPLANCHERDECL', 'METREPLANCHERCORR', 'PRIXKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
+ListCol=['','NBKM','POIDSDECLARE', 'METREPLANCHERDECL', 'METREPLANCHERCORR', 'NBETIQ', 'PRIXKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
 ListHue=['','PROV TPRS', 'NBETIQ',  'POIDSDECLARE', 'NBKM', 'METREPLANCHERDECL', 'METREPLANCHERCORR','ANNEEEXP', 'MOISEXP', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
         'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']
 dfDict={'Domestic':dfDom,"Inter" :dfInter,'TransInter' :dfTrans }
@@ -58,7 +58,7 @@ with col22:
     Dist=st.selectbox('Distance', Distances, index=i-1)
     
     if Selected!='':
-        if Selected in ['NBKM','POIDSDECLARE']:
+        if Selected in ['NBKM','POIDSDECLARE', 'NBETIQ']:
             Selmin=int(df[Selected].min())
             Selmax=int(df[Selected].max())
         else:
