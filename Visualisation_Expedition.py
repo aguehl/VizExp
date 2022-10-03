@@ -44,6 +44,8 @@ with col21:
     Typ=st.selectbox('Type de Trajet',Type )
     Selected=st.selectbox('Limites', ListCol, index=0)
     st.header('')
+    if Selected!='':
+        st.header('')
     Selected2=st.selectbox('seconde Limites', ListCol, index=0)
     
 
