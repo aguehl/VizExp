@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 col1,col2,col3 = st.columns([3,1,1])
 with col1:
-    im = Image.open("Viz_Streamlit/KN+EMP.jpg")
+    im = Image.open("/KN+EMP.jpg")
     st.image(im)
 st.header('')
 st.header('')
@@ -56,8 +56,8 @@ with col22:
         Selmin=df[Selected].min()
         Selmax=df[Selected].max()
         Limmax=0
-        Limmin=st.slider('min', min_value=Selmin,max_value=Selmax))
-        Limmax=st.slider('max', min_value=Selmin, max_value=Selmax )
+        Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
+        Limmax=st.slider('max', min_value=Selmin, max_value=Selmax)
 
 with col23:
     ftl=st.checkbox('FTL', value=True)
