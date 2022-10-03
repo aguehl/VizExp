@@ -24,8 +24,16 @@ def LoadParam():
     for i in range (0,5):
         df=pd.read_parquet(f'dfExp_V2.1_mix_Domestic_{i}.parquet')
         dfDom=pd.concat([dfDom, df]).reset_index(drop=True)
+        
+    for Col in ['METREPLANCHERDECL', 'METREPLANCHERCORR','PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 'PROV TPRS']:
+        dfDom[Col]=dfDom[Col].apply(lambda x: round(x, 2))
+        
     dfInter=pd.read_parquet('dfExp_V2.1_mix_Inter.parquet')
+    for Col in ['METREPLANCHERDECL', 'METREPLANCHERCORR','PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 'PROV TPRS']:
+        dfInter[Col]=dfInter[Col].apply(lambda x: round(x, 2))
     dfTransInter=pd.read_parquet('dfExp_V2.1_mix_TransInter.parquet')
+    for Col in ['METREPLANCHERDECL', 'METREPLANCHERCORR','PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 'PROV TPRS']:
+        dfTransInter[Col]=dfTransInter[Col].apply(lambda x: round(x, 2))
     return dfDom, dfInter, dfTransInter
 
 dfDom, dfInter, dfTrans =LoadParam()
