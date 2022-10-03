@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 col1,col2,col3 = st.columns([3,1,1])
 with col1:
-    im = Image.open("/KN+EMP.jpg")
+    im = Image.open("KN+EMP.jpg")
     st.image(im)
 st.header('')
 st.header('')
