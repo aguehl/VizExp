@@ -41,8 +41,8 @@ dfDom, dfInter, dfTrans =LoadParam()
 # PROV TPRS', 'MD(QT)', 'PAYSEXP', 'DEPTEXP', 'PAYSDEST', 'DEPTDEST', 'NBETIQ', 'NBPALEURDECL', 'POIDSDECLARE', 'NBKM', 
 # 'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
 # 'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL'
-ListCol=['','NBKM','POIDSDECLARE', 'METREPLANCHERDECL', 'METREPLANCHERCORR', 'NBETIQ', 'PRIXKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
-ListHue=['','PROV TPRS', 'NBETIQ',  'POIDSDECLARE', 'NBKM', 'METREPLANCHERDECL', 'METREPLANCHERCORR','ANNEEEXP', 'MOISEXP', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
+ListCol=['','NBKM','POIDSDECLARE', 'METREPLANCHERDECL', 'METREPLANCHERCORR', 'NBETIQ','DENSITE', 'PRIXKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
+ListHue=['','PROV TPRS', 'NBETIQ',  'POIDSDECLARE', 'NBKM', 'METREPLANCHERDECL', 'METREPLANCHERCORR','DENSITE','ANNEEEXP', 'MOISEXP', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
         'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']
 dfDict={'Domestic':dfDom,"Inter" :dfInter,'TransInter' :dfTrans }
 Type=['Domestic', 'Inter', 'TransInter']
@@ -80,7 +80,7 @@ with col22:
         Limmax=st.number_input('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)
 
     if Selected2!='':
-        if Selected2 in ['NBKM','POIDSDECLARE']:
+        if Selected2 in ['NBKM','POIDSDECLARE','NBETIQ', 'DENSITE']:
             Selmin2=int(df[Selected2].min())
             Selmax2=int(df[Selected2].max())
         else:
