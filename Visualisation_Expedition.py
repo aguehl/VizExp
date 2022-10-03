@@ -118,14 +118,16 @@ if (ColX!='')&(ColY!=''):
                         labels={
                         ColY:ColY,
                         ColX:ColX},
-                        title=f'Correlation entre {ColX} et {ColY}')
+                        title=f'Correlation entre {ColX} et {ColY}',
+                        height=400)
     else:
         fig = px.scatter(df, y=ColY, x=ColX, 
                         log_x=LogX, log_y=LogY,
                         labels={
                         ColY:ColY,
                         ColX:ColX},
-                        title=f'Correlation entre {ColX} et {ColY}')
+                        title=f'Correlation entre {ColX} et {ColY}',
+                        height=400)
 
     fig.update_layout(title_font_size=26)
     st.plotly_chart(fig, use_container_width=True)
