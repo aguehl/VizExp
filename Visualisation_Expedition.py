@@ -133,4 +133,5 @@ if (ColX!='')&(ColY!=''):
 
     fig.update_layout(title_font_size=26)
     st.plotly_chart(fig, use_container_width=True)
+    st.write(df)
 
