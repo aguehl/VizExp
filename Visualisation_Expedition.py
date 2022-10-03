@@ -103,20 +103,25 @@ if ltl==True:
 col31, col32, col33 =st.columns([1,1,1])
 with col31:
     ColX=st.selectbox('Axe des x', ListCol)
+    LogX=st.checkbox('Ehelle Log sur x', value=False)
 with col32:
     ColY=st.selectbox('Axe des y', ListCol)
+    LogY=st.checkbox('Ehelle Log sur y', value=False)
+    
 with col33:
     ColHue=st.selectbox('Mise en évidence', ListHue)
 
 if (ColX!='')&(ColY!=''):
     if ColHue!='':
         fig = px.scatter(df, y=ColY, x=ColX, color=ColHue, color_continuous_scale="turbo",
+                        log_x=LogX, log_y=LogY,
                         labels={
                         ColY:ColY,
                         ColX:ColX},
                         title=f'Correlation entre {ColX} et {ColY}')
     else:
         fig = px.scatter(df, y=ColY, x=ColX, 
+                        log_x=LogX, log_y=LogY,
                         labels={
                         ColY:ColY,
                         ColX:ColX},
