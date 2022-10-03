@@ -38,6 +38,8 @@ ListHue=['','PROV TPRS', 'NBETIQ',  'POIDSDECLARE', 'NBKM', 'METREPLANCHERDECL',
         'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']
 dfDict={'Domestic':dfDom,"Inter" :dfInter,'TransInter' :dfTrans }
 Type=['Domestic', 'Inter', 'TransInter']
+
+st.write(dfDom.iloc[19])
 st.header('Sélection')
 col21, col22, col23=st.columns([1,1,1])
 with col21: 
