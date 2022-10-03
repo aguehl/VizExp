@@ -111,7 +111,7 @@ with col32:
 with col33:
     ColHue=st.selectbox('Mise en évidence', ListHue)
 
-Height=st.slider('HAuteur du graph', min_value=400, max_value=3000)
+Height=st.slider('HAuteur du graph', min_value=400, max_value=1500, value=1000)
 
 if (ColX!='')&(ColY!=''):
     if ColHue!='':
