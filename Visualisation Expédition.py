@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 col1,col2,col3 = st.columns([3,1,1])
 with col1:
-    im = Image.open("/home/aguehl/Data/_KN DATA/Prix_moyens/Viz_Streamlit/KN+EMP.jpg")
+    im = Image.open("Viz_Streamlit/KN+EMP.jpg")
     st.image(im)
 st.header('')
 st.header('')
@@ -20,9 +20,12 @@ st.header('')
 #Chargeement des données
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def LoadParam():
-    dfDom=pd.read_parquet('/home/aguehl/Data/_KN DATA/Prix_moyens/Viz_Streamlit/dfExp_V2.1_mix_Domestic.parquet')
-    dfInter=pd.read_parquet('/home/aguehl/Data/_KN DATA/Prix_moyens/Viz_Streamlit/dfExp_V2.1_mix_Inter.parquet')
-    dfTransInter=pd.read_parquet('/home/aguehl/Data/_KN DATA/Prix_moyens/Viz_Streamlit/dfExp_V2.1_mix_TransInter.parquet')
+    dfDom=pd.DataFrame()
+    for i in range (0,5):
+        df=pd.read_parquet(f'dfExp_V2.1_mix_Domestic_{i}.parquet')
+        dfDom=pd.concat([dfDom, df]).reset_index(drop=True)
+    dfInter=pd.read_parquet('dfExp_V2.1_mix_Inter.parquet')
+    dfTransInter=pd.read_parquet('dfExp_V2.1_mix_TransInter.parquet')
     return dfDom, dfInter, dfTransInter
 
 dfDom, dfInter, dfTrans =LoadParam()
