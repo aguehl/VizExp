@@ -72,8 +72,8 @@ with col22:
             Selmin2=float(df[Selected2].min())
             Selmax2=float(df[Selected2].max())
             
-        Limmin2=st.slider('min', min_value=Selmin,max_value=Selmax)
-        Limmax2=st.slider('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)   
+        Limmin2=st.slider('min', min_value=Selmin2,max_value=Selmax2)
+        Limmax2=st.slider('max', min_value=Selmin2, max_value=Selmax2)   
     
 
 with col23:
