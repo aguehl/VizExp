@@ -100,9 +100,9 @@ if Dist!='':
     df=df[df.DISTANCE==Dist]
     
 if Selected!='':
-    df=df[(df[Selected]>Limmin)&(df[Selected]<Limmax)]
+    df=df[(df[Selected]>=Limmin)&(df[Selected]<=Limmax)]
 if Selected2!='':
-    df=df[(df[Selected2]>Limmin2)&(df[Selected2]<Limmax2)]
+    df=df[(df[Selected2]>=Limmin2)&(df[Selected2]<=Limmax2)]
     
 if ftl==True:
     if ltl==False:
