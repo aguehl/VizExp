@@ -146,6 +146,6 @@ if (ColX!='')&(ColY!=''):
 
     fig.update_layout(title_font_size=26)
     st.plotly_chart(fig, use_container_width=True)
-    st.write(df[['NUMEXPEDITION',  'NOMAGENCE',  'PROV TPRS',  'NBETIQ',  'POIDSDECLARE', 'NBKM', 
-                'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
-                'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']])
+st.write(df[['NUMEXPEDITION',  'NOMAGENCE',  'PROV TPRS',  'NBETIQ',  'POIDSDECLARE', 'NBKM', 
+            'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
+            'DENSITE', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']])
