@@ -54,7 +54,9 @@ with col22:
     
     if Selected!='':
         Selmin=df[Selected].min()
+        st.write(Selmin)
         Selmax=df[Selected].max()
+        st.write(Selmax)
         Limmax=0
         Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
         Limmax=st.slider('max', min_value=Selmin, max_value=Selmax)
