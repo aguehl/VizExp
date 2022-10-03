@@ -53,9 +53,9 @@ with col22:
     Dist=st.selectbox('Distance', Distances, index=i-1)
     
     if Selected!='':
-        Selmin=df[Selected].min()
+        Selmin=int(df[Selected].min())
         st.write(Selmin)
-        Selmax=df[Selected].max()
+        Selmax=int(df[Selected].max())
         st.write(Selmax)
         Limmax=0
         Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
