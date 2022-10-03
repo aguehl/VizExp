@@ -111,6 +111,8 @@ with col32:
 with col33:
     ColHue=st.selectbox('Mise en évidence', ListHue)
 
+Height=st.slider('HAuteur du graph', min_value=400, max_value=3000)
+
 if (ColX!='')&(ColY!=''):
     if ColHue!='':
         fig = px.scatter(df, y=ColY, x=ColX, color=ColHue, color_continuous_scale="turbo",
@@ -119,7 +121,7 @@ if (ColX!='')&(ColY!=''):
                         ColY:ColY,
                         ColX:ColX},
                         title=f'Correlation entre {ColX} et {ColY}',
-                        height=400)
+                        height=Height)
     else:
         fig = px.scatter(df, y=ColY, x=ColX, 
                         log_x=LogX, log_y=LogY,
@@ -127,7 +129,7 @@ if (ColX!='')&(ColY!=''):
                         ColY:ColY,
                         ColX:ColX},
                         title=f'Correlation entre {ColX} et {ColY}',
-                        height=400)
+                        height=Height)
 
     fig.update_layout(title_font_size=26)
     st.plotly_chart(fig, use_container_width=True)
