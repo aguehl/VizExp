@@ -32,9 +32,10 @@ dfDom, dfInter, dfTrans =LoadParam()
 #['NUMEXPEDITION', 'METIER', 'DTCHGTPREVUDU', 'CODEMODEPORT', 'MONTANTHTMB', 'NUMAGENCE', 'NOMAGENCE', 'TYPEFOUR', '
 # PROV TPRS', 'MD(QT)', 'PAYSEXP', 'DEPTEXP', 'PAYSDEST', 'DEPTDEST', 'NBETIQ', 'NBPALEURDECL', 'POIDSDECLARE', 'NBKM', 
 # 'METREPLANCHERDECL', 'ANNEEEXP', 'MOISEXP', 'METREPLANCHERCORR', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
-# 'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE
+# 'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL'
 ListCol=['','NBKM','POIDSDECLARE', 'METREPLANCHERDECL', 'METREPLANCHERCORR', 'PRIXKKM', 'PRIXML', 'PRIXMLKM', 'PROV TPRS' ]
-
+ListHue=['','PROV TPRS', 'NBETIQ',  'POIDSDECLARE', 'NBKM', 'METREPLANCHERDECL', 'METREPLANCHERCORR','ANNEEEXP', 'MOISEXP', 'PRIXMLKM', 'PRIXKM', 'PRIXML', 'PRIXPDSDECL', 
+        'METREPLANCHERDECLSTD', 'METREPLANCHERCORRSTD', 'PalEUR', 'PalEUR_IO', 'ADR_IO', 'TransType', 'Trajet', 'DISTANCE', 'FTL']
 dfDict={'Domestic':dfDom,"Inter" :dfInter,'TransInter' :dfTrans }
 Type=['Domestic', 'Inter', 'TransInter']
 st.header('Sélection')
@@ -88,7 +89,7 @@ with col31:
 with col32:
     ColY=st.selectbox('Axe des y', ListCol)
 with col33:
-    ColHue=st.selectbox('Mise en évidence', ListCol)
+    ColHue=st.selectbox('Mise en évidence', ListHue)
 
 if (ColX!='')&(ColY!=''):
     if ColHue!='':
