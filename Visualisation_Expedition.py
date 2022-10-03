@@ -43,6 +43,7 @@ col21, col22, col23=st.columns([1,1,1])
 with col21: 
     Typ=st.selectbox('Type de Trajet',Type )
     Selected=st.selectbox('Limites', ListCol, index=0)
+    Selected2=st.selectbox('seconde Limites', ListCol, index=0)
     
 
 df=dfDict[Typ]
@@ -60,11 +61,20 @@ with col22:
         else:
             Selmin=float(df[Selected].min())
             Selmax=float(df[Selected].max())
-        st.write(Selmin)
-        st.write(Selmax)
-        Limmax=0
         Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
         Limmax=st.slider('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)
+
+    if Selected2!='':
+        if Selected2 in ['NBKM','POIDSDECLARE']:
+            Selmin2=int(df[Selected2].min())
+            Selmax2=int(df[Selected2].max())
+        else:
+            Selmin2=float(df[Selected2].min())
+            Selmax2=float(df[Selected2].max())
+            
+        Limmin2=st.slider('min', min_value=Selmin,max_value=Selmax)
+        Limmax2=st.slider('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)   
+    
 
 with col23:
     ftl=st.checkbox('FTL', value=True)
@@ -72,8 +82,12 @@ with col23:
 
 if Dist!='':    
     df=df[df.DISTANCE==Dist]
+    
 if Selected!='':
     df=df[(df[Selected]>Limmin)&(df[Selected]<Limmax)]
+if Selected2!='':
+    df=df[(df[Selected2]>Limmin2)&(df[Selected2]<Limmax2)]
+    
 if ftl==True:
     if ltl==False:
         df=df[df.FTL=='FTL']
