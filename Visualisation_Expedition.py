@@ -64,8 +64,10 @@ with col22:
         else:
             Selmin=float(df[Selected].min())
             Selmax=float(df[Selected].max())
-        Limmin=st.slider('min', min_value=Selmin,max_value=Selmax)
-        Limmax=st.slider('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)
+        st.write(Selmin)
+        st.write(Selmax)
+        Limmin=st.number_input('min', min_value=Selmin,max_value=Selmax)
+        Limmax=st.number_input('max(df[Selected].min())', min_value=Selmin, max_value=Selmax)
 
     if Selected2!='':
         if Selected2 in ['NBKM','POIDSDECLARE']:
@@ -74,9 +76,10 @@ with col22:
         else:
             Selmin2=float(df[Selected2].min())
             Selmax2=float(df[Selected2].max())
-            
-        Limmin2=st.slider('min', min_value=Selmin2,max_value=Selmax2)
-        Limmax2=st.slider('max', min_value=Selmin2, max_value=Selmax2)   
+        st.write(Selmin2)
+        st.write(Selmax2)
+        Limmin2=st.number_input('min', min_value=Selmin2,max_value=Selmax2)
+        Limmax2=st.number_input('max', min_value=Selmin2, max_value=Selmax2)   
     
 
 with col23:
