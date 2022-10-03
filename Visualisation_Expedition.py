@@ -43,7 +43,7 @@ col21, col22, col23=st.columns([1,1,1])
 with col21: 
     Typ=st.selectbox('Type de Trajet',Type )
     Selected=st.selectbox('Limites', ListCol, index=0)
-    st.header()
+    st.header('')
     Selected2=st.selectbox('seconde Limites', ListCol, index=0)
     
 
