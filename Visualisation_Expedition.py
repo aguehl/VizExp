@@ -60,12 +60,11 @@ with col21:
     
 
 df=dfDict[Typ]
-Distances=list(df.DISTANCE.unique())
-Distances.append('')
+Distances=['', 'XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
 i=len(Distances)
 
 with col22:
-    Dist=st.selectbox('Distance', Distances, index=i-1)
+    Dist=st.selectbox('Distance', Distances)
     
     if Selected!='':
         if Selected in ['NBKM','POIDSDECLARE', 'NBETIQ']:
