@@ -64,11 +64,13 @@ with col21:
 
 
 if File==None:
+    st.warning('Import Auto')
     df=dfDict[Typ]
     Distances=['', 'XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
     i=len(Distances)
 else:
     try:
+        
         df=pd.read_parquet(File)
         df=df.sort_values('PROV TPRS')
         Distances=['']
@@ -76,6 +78,7 @@ else:
         for D in Dist:
             Distances.append(D)
         i=len(Distances)
+        st.warning('Import Fichier Upload')
     except:
         st.Warning('Fichier incompatible')
 
