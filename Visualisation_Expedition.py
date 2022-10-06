@@ -67,8 +67,7 @@ if File==None:
     df=dfDict[Typ]
     Distances=['', 'XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
     i=len(Distances)
-
-Else:
+else:
     try:
         df=pd.read_parquet(File)
         df=df.sort_values('PROV TPRS')
