@@ -13,9 +13,12 @@ with col1:
     im = Image.open("KN+EMP.jpg")
     st.image(im)
 st.header('')
+
+
+
+File=st.file_uploader('Import Parquet file', )
+
 st.header('')
-
-
 #uploaded_file = st.file_uploader("Choose a file")
 #Chargeement des données
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
@@ -59,9 +62,23 @@ with col21:
     Selected2=st.selectbox('seconde Limites', ListCol, index=0)
     
 
-df=dfDict[Typ]
-Distances=['', 'XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
-i=len(Distances)
+
+if File==None:
+    df=dfDict[Typ]
+    Distances=['', 'XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
+    i=len(Distances)
+
+Else:
+    try:
+        df=pd.read_parquet(File)
+        df=df.sort_values('PROV TPRS')
+        Distances=['']
+        Dist=df.DISTANCE.unique()
+        for D in Dist:
+            Distances.append(D)
+        i=len(Distances)
+    except:
+        st.Warning('Fichier incompatible')
 
 with col22:
     Dist=st.selectbox('Distance', Distances)
